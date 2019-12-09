@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+<script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    tooltip: {},
+    legend: {
+        orient: "vertical",
+        x: "right",
+        y: "bottom",
+        data: ["小学", "初中", "高中"],
+        textStyle: {
+            fontStyle: "normal",
+            color: "#7D5848"
+        }
+    },
+    toolbox: {
+        feature: {
+            mark: {
+                show: true
+            },
+            dataView: {
+                show: true,
+                readOnly: false
+            },
+            restore: {
+                show: true
+            },
+            saveAsImage: {
+                show: true
+            }
+        }
+    },
+    radar: {
+        // shape: 'circle',
+        name: {
+            textStyle: {
+                color: '#7D5848',
+                borderRadius: 3,
+                padding: [3, 5]
+           }
+        },
+        indicator: [
+           { name: '教育类', max: 1},
+           { name: '兴趣类', max: 1},
+           { name: '作业类', max: 1},
+           { name: '拓展类', max: 1},
+           { name: '考试类', max: 1},
+           { name: '竞赛类', max: 1},
+           { name: '留学类', max: 1}
+        ],
+        center: ["50%", "50%"],
+            radius: "75%",
+            splitNumber: 2,
+            axisLabel: {
+                show: false
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: "#7D5848",
+                    type: "solid",
+                    width: 1
+                }
+            },
+            splitArea: {
+                show: false
+            },
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: "#7D5848",
+                    width: 2,
+                    type: "dashed"
+                }
+            },
+            startAngle: 90,
+            type: "polygon"
+    },
+    series: [{
+        type: 'radar',
+        // areaStyle: {normal: {}},
+        data : [
+            {
+                value : [0.5418, 0.5743, 0.277, 0.2403, 0.165, 0.1976, 0.0265],
+                name : '小学'
+            },
+                        {
+                value : [0.6797, 0.3399, 0.2026, 0.1895, 0.3072, 0.1176, 0.0261],
+                name : '初中'
+            },
+             {
+                value : [0.5513, 0.3205, 0.1282, 0.1538, 0.4231, 0.1538, 0.0513],
+                name : '高中'
+            }
+        ]
+    }],
+    color: ["#C9B9B1", "#C98E75", "#4A342B", "rgb(127, 63, 0)", "#938681", "#938681", "#938681", "#cd5c5c", "#ffa500", "#40e0d0", "#1e90ff", "#ff6347", "#7b68ee", "#00fa9a", "#ffd700", "#6699FF", "#ff6666"]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+
+</script>
+</body>
+</html>

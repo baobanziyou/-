@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title: {
+        x: "center"
+    },
+    tooltip: {
+        trigger: "item"
+    },
+    dataRange: {
+        min: 0,
+        max: 1200,
+        text: ["高", "低"],
+        calculable: true,
+        color: ["#40291F", "#B38544"],
+        textStyle: {
+            color: "#80513d"
+        }
+    },
+    toolbox: {
+        feature: {
+            dataView: {
+                readOnly: false
+            },
+            saveAsImage: {
+                show: true
+            }
+        },
+        show: false
+    },
+    roamController: {
+        mapTypeControl: {
+            china: true
+        }
+    },
+    series: [
+        {
+            name: "品牌项目数量",
+            type: "map",
+            mapType: "china",
+            roam: "scale",
+            mapValueCalculation: "sum",
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: true
+                    }
+                },
+                emphasis: {
+                    label: {
+                        show: true
+                    }
+                }
+            },
+            data: [
+                {
+                    value: 1155,
+                    name: "北京"
+                },
+                {
+                    value: 58,
+                    name: "天津"
+                },
+                {
+                    value: 519,
+                    name: "上海"
+                },
+                {
+                    value: 40,
+                    name: "重庆"
+                },
+                {
+                    value: 25,
+                    name: "河北"
+                },
+                {
+                    value: 64,
+                    name: "河南"
+                },
+                {
+                    value: 10,
+                    name: "云南"
+                },
+                {
+                    value: 43,
+                    name: "辽宁"
+                },
+                {
+                    value: 16,
+                    name: "黑龙江"
+                },
+                {
+                    value: 62,
+                    name: "湖南"
+                },
+                {
+                    value: 53,
+                    name: "安徽"
+                },
+                {
+                    value: 95,
+                    name: "山东"
+                },
+                {
+                    value: 1,
+                    name: "新疆"
+                },
+                {
+                    value: 182,
+                    name: "江苏"
+                },
+                {
+                    value: 230,
+                    name: "浙江"
+                },
+                {
+                    value: 16,
+                    name: "江西"
+                },
+                {
+                    value: 115,
+                    name: "湖北"
+                },
+                {
+                    value: 11,
+                    name: "广西"
+                },
+                {
+                    value: 4,
+                    name: "甘肃"
+                },
+                {
+                    value: 14,
+                    name: "山西"
+                },
+                {
+                    value: 5,
+                    name: "内蒙古"
+                },
+                {
+                    value: 67,
+                    name: "陕西"
+                },
+                {
+                    value: 7,
+                    name: "吉林"
+                },
+                {
+                    value: 80,
+                    name: "福建"
+                },
+                {
+                    value: 15,
+                    name: "贵州"
+                },
+                {
+                    value: 621,
+                    name: "广东"
+                },
+                {
+                    value: 1,
+                    name: "青海"
+                },
+                {
+                    value: 3,
+                    name: "西藏"
+                },
+                {
+                    value: 178,
+                    name: "四川"
+                },
+                {
+                    value: 3,
+                    name: "宁夏"
+                },
+                {
+                    value: 12,
+                    name: "海南"
+                },
+                {
+                    value: "-",
+                    name: "台湾"
+                },
+                {
+                    value: 7,
+                    name: "香港"
+                },
+                {
+                    value: 0,
+                    name: "澳门"
+                }
+            ]
+        }
+    ],
+    color: ["rgb(255, 127, 0)", "rgb(255, 170, 86)", "#da70d6", "#32cd32", "#6495ed", "#ff69b4", "#ba55d3", "#cd5c5c", "#ffa500", "#40e0d0", "#1e90ff", "#ff6347", "#7b68ee", "#00fa9a", "#ffd700", "#6699FF", "#ff6666", "#3cb371", "#b8860b", "#30e0e0"]
+};
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
